@@ -26,6 +26,25 @@ Reverse Linked List
   
   stop when reach end of linked list
 
+  ---------------
+  pointer to head < given
+  pointer to current set to head
+  pointer to previous set to nil
+  pointer to next c.next
+  c.next = p
+  p = c
+  c = n
+
+  for c != nile {
+    n = c.next
+    c.next = p
+    p = c
+    c = n
+  }
+
+  return p when c and n refer to nil
+
+
 Reverse Linked List II
   
   iterate through linked list to find the node with the value given as left
