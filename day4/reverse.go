@@ -55,6 +55,23 @@ func main() {
 
 }
 
+func reverseBetween(head *ListNode, left int, right int) *ListNode {
+	c := head
+
+	var start *ListNode
+	var end *ListNode
+	var oldhead *ListNode
+	var tempNewHead *ListNode
+	for c != nil {
+		if c.Val == left {
+			for r != nil {
+
+			}
+		}
+		r := head.next
+	}
+}
+
 func reverseList(head *ListNode) *ListNode {
 	if head == nil {
 		return head

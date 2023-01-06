@@ -41,16 +41,29 @@ func main() {
 	fmt.Println(hasCycle(l))
 }
 
+// func hasCycle(head *ListNode) bool {
+// 	hsh := map[*ListNode]bool{}
+// 	c := head
+// 	for c != nil {
+// 		_, ok := hsh[c]
+// 		if ok {
+// 			return true
+// 		}
+// 		hsh[c] = true
+// 		c = c.Next
+// 	}
+// 	return false
+// }
+
 func hasCycle(head *ListNode) bool {
-	hsh := map[*ListNode]bool{}
-	c := head
-	for c != nil {
-		_, ok := hsh[c]
-		if ok {
+	s := head
+	f := head
+	for f != nil && f.Next != nil {
+		s = s.Next
+		f = f.Next.Next
+		if s == f {
 			return true
 		}
-		hsh[c] = true
-		c = c.Next
 	}
 	return false
 }
