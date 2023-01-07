@@ -64,25 +64,18 @@ func maxSubArray(nums []int) int {
 	if len(nums) == 1 {
 		return nums[0]
 	}
-	// maxLeftAndRight := helper(nums, 0, len(nums) -1)
-	// crossSum := cross(nums)
 	right := len(nums) - 1
 	return helper(nums, 0, right)
 }
 
 func helper(nums []int, start, end int) int {
-	// fmt.Println(nums, start, end)
 	if start == end {
-		// fmt.Println("nums start: "nums[start])
 		return nums[start]
 	}
 	mid := start + (end-start)/2
 	leftSum := helper(nums, start, mid)
-	// fmt.Println("left sum:" , leftSum)
 	rightSum := helper(nums, mid+1, end)
 	crossMax := cross(nums, start, end)
-	// fmt.Println("right sum: ", rightSum)
-	// fmt.Println("max sum: ", max(leftSum, rightSum))
 	return max(leftSum, rightSum, crossMax)
 }
 
