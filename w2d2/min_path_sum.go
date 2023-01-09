@@ -12,7 +12,7 @@ func main() {
 func minPathSum(grid [][]int) int {
 	memo := map[[2]int]int{}
 	min := helper(grid, 0, 0, memo)
-	fmt.Println(memo)
+	// fmt.Println(memo)
 	return min
 }
 
@@ -20,19 +20,19 @@ func helper(grid [][]int, row, col int, memo map[[2]int]int) (min int) {
 	maxRow := len(grid) - 1
 	maxCol := len(grid[0]) - 1
 	if row == maxRow && col == maxCol {
-		memo[[2]int{row, col}] = grid[row][col]
+		// memo[[2]int{row, col}] = grid[row][col]
 		return grid[row][col]
 	}
 
 	if row == maxRow {
 		min = helper(grid, row, col+1, memo) + grid[row][col]
-		memo[[2]int{row, col}] = min
+		// memo[[2]int{row, col}] = min
 		return
 	}
 
 	if col == maxCol {
 		min = helper(grid, row+1, col, memo) + grid[row][col]
-		memo[[2]int{row, col}] = min
+		// memo[[2]int{row, col}] = min
 		return
 	}
 
