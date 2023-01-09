@@ -58,3 +58,36 @@ recursion
 	return min()
 
 */
+
+//-------------------------------------------------------------------------------------------------
+
+/*
+
+Recursive Solution
+
+func minimumTotal(triangle [][]int) int {
+	memo := map[[2]int]int{}
+	return minSum(triangle, 0, 0, memo)
+}
+
+func minSum(triangle [][]int, row, col int, memo map[[2]int]int) int {
+	rowMax := len(triangle) - 1
+	if row == rowMax {
+		return triangle[row][col]
+	}
+
+	directBottom := minSum(triangle, row+1, col, memo)
+	oneLeftBottom := minSum(triangle, row+1, col+1, memo)
+	res := min(directBottom, oneLeftBottom) + triangle[row][col]
+	memo[[2]int{row, col}] = res
+	return res
+}
+
+func min(a, b int) int {
+	if a <= b {
+		return a
+	}
+	return b
+}
+
+*/
