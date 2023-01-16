@@ -16,34 +16,20 @@ func minPathSum(grid [][]int) int {
 	return min
 }
 
-func helper(grid [][]int, row, col int, memo map[[2]int]int) (min int) {
+func minSum(grid, row, col, memo) int {
+	maxVal := 201
 	maxRow := len(grid) - 1
 	maxCol := len(grid[0]) - 1
-	if row == maxRow && col == maxCol {
-		// memo[[2]int{row, col}] = grid[row][col]
-		return grid[row][col]
+	right, ok := memo[row][col + 1]
+	if !ok {
+		right = maxVal
+	}
+	down, ok := memo[row + 1][col]
+	if !ok {
+		down = maxVal
 	}
 
-	if row == maxRow {
-		min = helper(grid, row, col+1, memo) + grid[row][col]
-		// memo[[2]int{row, col}] = min
-		return
-	}
-
-	if col == maxCol {
-		min = helper(grid, row+1, col, memo) + grid[row][col]
-		// memo[[2]int{row, col}] = min
-		return
-	}
-
-	i, ok := memo[[2]int{row, col}]
-
-	if ok {
-		return i
-	}
-	min = findMin(helper(grid, row, col+1, memo), helper(grid, row+1, col, memo)) + grid[row][col]
-	memo[[2]int{row, col}] = min
-	return
+	return findMin(right, down) + grid[]
 }
 
 func findMin(a, b int) int {
